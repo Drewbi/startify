@@ -1,4 +1,4 @@
-# startify
+# Startify
 The next big thing, disrupting the startup industry
 ![Startify-Banner](https://user-images.githubusercontent.com/38243574/83614618-07b3a280-a5b8-11ea-8111-b5e85b4c8b09.jpg)
 
