@@ -15,7 +15,7 @@ npm i -g vercel
 
 ### Running project
 ```bash
-vercel dev # Local Development
+vercel dev # Local development
 vercel # Staging deployment
 ```
 
