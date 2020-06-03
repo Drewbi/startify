@@ -1,33 +1,40 @@
 # startify
 The next big thing, disrupting the startup industry
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Startify-Banner](https://user-images.githubusercontent.com/38243574/83614618-07b3a280-a5b8-11ea-8111-b5e85b4c8b09.jpg)
 
 ## Getting Started
 
-First, run the development server:
-
+### Install Dependencies and Vercel
 ```bash
-npm run dev
+yarn # Install dependencies
+yarn global add vercel
 # or
-yarn dev
+npm install
+npm i -g vercel
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### For development
+```bash
+vercel dev
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### For deployment
+```bash
+vercel
+```
 
-## Learn More
+## Technologies Used
+- [Next.js](https://nextjs.org/)
+- [Faker.js](https://github.com/marak/Faker.js/)
+- [Vercel Hosting](https://github.com/vercel/vercel)
+- [DeepAI](https://deepai.org/machine-learning-model/text-generator)
 
-To learn more about Next.js, take a look at the following resources:
+## Features
+- Choose from a few startup categories
+- Generates a fake website using faker.js
+- Ability to save website URL to regenerate pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Authors
+- Nisarag Bhatt [Github](https://github.com/FocalChord) [Linkedin](https://www.linkedin.com/in/nisarag-bhatt-31639a76/) 
+- Drew Alexander [Github](https://github.com/Drewbi) [Linkedin](https://www.linkedin.com/in/drewealexander/) 
+- Laveesh Gupta [Github](https://github.com/laveesh) [Linkedin](https://www.linkedin.com/in/laveeshgupta/) 
