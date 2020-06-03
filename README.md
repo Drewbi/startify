@@ -4,23 +4,19 @@ The next big thing, disrupting the startup industry
 
 ## Getting Started
 
-### Install Dependencies and Vercel
+### Install Dependencies and Vercel CLI
 ```bash
-yarn # Install dependencies
+yarn
 yarn global add vercel
 # or
 npm install
 npm i -g vercel
 ```
 
-### For development
+### Running project
 ```bash
-vercel dev
-```
-
-### For deployment
-```bash
-vercel
+vercel dev # Local Development
+vercel # Staging deployment
 ```
 
 ## Technologies Used
