@@ -1,56 +1,45 @@
 import Head from 'next/head';
 import { Formik, Form } from 'formik';
-import FormField from '../components/FormField';
 import FormSelect, { FormSelectItem } from '../components/FormSelect';
 import Button from '@material-ui/core/Button';
 import { Typography } from '@material-ui/core';
+import { useRouter } from 'next/router';
 
 interface FormValues {
-  name: string;
   type: string;
-  theme: string;
 }
 
 const initialValues: FormValues = {
-  name: '',
   type: '',
-  theme: '',
 };
 
 const positionItems: FormSelectItem[] = [
   {
     label: 'Corporate',
-    value: 'corporate',
+    value: '1',
   },
   {
     label: 'AI',
-    value: 'ai',
+    value: '2',
   },
   {
     label: 'Technology',
-    value: 'technology',
+    value: '3',
   },
   {
     label: 'E-Commerce',
-    value: 'e_commerce',
-  },
-];
-
-const themeItems: FormSelectItem[] = [
-  {
-    label: 'Dark Theme',
-    value: 'dark',
-  },
-  {
-    label: 'Light Theme',
-    value: 'light',
+    value: '4',
   },
 ];
 
 const Home: React.FC = () => {
+  const router = useRouter();
+
   const handleSubmit = (values: FormValues): void => {
-    // Make API Call with JSON.stringify(values);
-    console.log(JSON.stringify(values));
+    const generateRandomInteger = (max) => Math.floor(1 + Math.random() * max);
+    const typeId = values['type'];
+    const redirectURL = `/home/${generateRandomInteger(1000000)}?t=${typeId}`;
+    router.push(redirectURL);
   };
 
   return (
@@ -64,26 +53,20 @@ const Home: React.FC = () => {
         <h1 className="title">Welcome to Startify!</h1>
         <div className="form">
           <Typography variant="h6">
-            Enter details of your startup to get started!
+            Pick a company type to get started!
           </Typography>
           <Formik initialValues={initialValues} onSubmit={handleSubmit}>
             {({ dirty, isValid }) => {
               return (
                 <Form>
-                  <FormField name="name" label="Company Name" />
                   <FormSelect
                     name="type"
                     items={positionItems}
                     label="Company Type"
                   />
 
-                  <FormSelect
-                    name="theme"
-                    items={themeItems}
-                    label="Website Theme?"
-                  />
-
                   <Button
+                    style={{ marginLeft: '12px' }}
                     variant="contained"
                     color="primary"
                     disabled={!dirty || !isValid}
@@ -99,7 +82,7 @@ const Home: React.FC = () => {
       </main>
 
       <footer>
-        <p> Made by Team 2 in Pod 0.3.2 </p>
+        <p> Made by Team 1 in Pod 0.3.2 </p>
       </footer>
 
       <style jsx>{`
@@ -110,7 +93,6 @@ const Home: React.FC = () => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: #e2dadb;
         }
 
         .form {
