@@ -1,3 +1,5 @@
+import { routeParams } from '../../core';
+  
 import Head from 'next/head';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useRouter } from 'next/router';
@@ -32,6 +34,7 @@ const secondRowData = [
 ];
 
 export default function Home() {
+  console.log(routeParams());
   return (
     <div className="container">
       <Head>
