@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  logo: { marginLeft: `0px` },
   container: {
     backgroundColor: theme.palette.primary.main,
     height: `200px`,
@@ -31,11 +32,36 @@ const useStyles = makeStyles((theme) => ({
     color: `white`,
   },
   logoContainer: {},
-  quoteContainer: {},
+  quoteContainer: { display: `flex`, alignItems: `center` },
   linkContainer: {},
 }));
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  companyName: string;
+  quote: string;
+  address: {
+    streetAddress: string;
+    streetName: string;
+    city: string;
+    state: string;
+    country: string;
+    zipCode: string;
+  };
+  phoneNumber: string;
+  person: {
+    name: string;
+    suffix: string;
+    title: string;
+  };
+}
+
+const Footer: React.FC<FooterProps> = ({
+  companyName,
+  quote,
+  address,
+  phoneNumber,
+  person,
+}: FooterProps) => {
   const classes = useStyles();
 
   return (
@@ -49,23 +75,23 @@ const Footer: React.FC = () => {
         className={classes.logoContainer}
       >
         <div>
-          <Logo name="Graham & Graham" color="white"></Logo>
+          <Logo name={companyName} color="white"></Logo>
           <Typography variant="h6" className={classes.LogoText}>
-            Graham & Graham
+            {companyName}
           </Typography>
         </div>
         <Typography className={classes.text}>
-          319 Maggio Brooks, East Leahaven
-        </Typography>
-        <Typography className={classes.text}>Borders, Romania, 0213</Typography>
-        <Typography className={classes.text}>(788) 317-9037</Typography>
-      </Box>
-      <Box className={classes.quoteContainer}>
-        <Typography className={classes.quoteText}>
-          &quot;Total intermediate synergy”
+          {address.streetAddress}, {address.streetName}, {address.city}
         </Typography>
         <Typography className={classes.text}>
-          - Kattie Welch Sr, Global Paradigm Engineer
+          {address.state}, {address.country}, {address.zipCode}
+        </Typography>
+        <Typography className={classes.text}>{phoneNumber}</Typography>
+      </Box>
+      <Box className={classes.quoteContainer}>
+        <Typography className={classes.quoteText}>&quot;{quote}</Typography>
+        <Typography className={classes.text}>
+          - {person.name} {person.suffix}, {person.title}
         </Typography>
       </Box>
       <Box
