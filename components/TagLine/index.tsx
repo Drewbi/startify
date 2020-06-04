@@ -11,11 +11,10 @@ interface FirstRowProps {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    margin: `50px 200px 100px 200px`,
+    margin: `50px 15vw 100px 15vw`,
   },
   image: {
     margin: `0 0 0 auto`,
-    display: theme.breakpoints.up('lg') ? `block` : `none`,
   },
 }));
 

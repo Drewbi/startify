@@ -15,19 +15,19 @@ const secondRowData = [
     imageSrc: '/bear.svg',
     title: 'Distributed Info-Mediaries',
     bodyText:
-      'If you want to use a local server and you want to use it locally for your server, you can create an instance for your server asf server server server serve',
+      'If you want to use a single-server server and you want to use it locally for the server, you can create a new server instance with a single-server server.',
   },
   {
     imageSrc: '/notes.svg',
-    title: 'Distributed Info-Mediaries',
+    title: 'Collaborative Knowledge Base',
     bodyText:
-      'If you want to use a local server and you want to use it locally for your server, you can create an instance for your server asf server server server serve',
+      'In order to foster collaborative knowledge sharing, the University of Chicago will collaborate with other universities on a collaborative project to create a research-based educational resource.',
   },
   {
     imageSrc: '/stats.svg',
     title: 'Distributed Info-Mediaries',
     bodyText:
-      'If you want to use a local server and you want to use it locally for your server, you can create an instance for your server asf server server server serve',
+      'The new system will allow you to create a high-resolution, interactive virtual-reality experience for the virtual body. The new display is composed of three different colored lights that are controlled by the user.',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Home() {
         />
       </Head>
       <CssBaseline />
-      <Header />
+      <Header name="Graham & Graham" />
       <Hero />
       <FirstRow
         titleText={'Business-focused contextually based architecture'}
@@ -57,11 +57,11 @@ export default function Home() {
       />
       <SecondRow data={secondRowData} />
       <ThirdRow
-        title={'Visionary, Innovate, Convergence'}
+        title={'Visionary. Innovate. Convergence. '}
         bodyText={
-          'If you want to use a local server and you want to use it locally for your server, you can create an instance for your server asf server server server serve If you want to use a local server and you want to use it locally for your server, you can create an instance for your server asf server server server serve If you want to use a local server and you want to use it locally for your server, you can create an instance for your server asf server server server serve'
+          'With the help of our friends at the Center for Economic and Policy Research, we are bringing out the top-ranked scientists in the field of robotics in a series of posts that will focus on the new technologies that will be available to our community. In general, these new technologies will be the most advanced in the history of robotics. In short, the more advanced are the technologies that will enable us to make the most of our innovations.'
         }
-        imageSrc="/stats.svg"
+        imageSrc="https://unsplash.com/photos/Ua-agENjmI4/download"
       />
       <Footer />
     </div>

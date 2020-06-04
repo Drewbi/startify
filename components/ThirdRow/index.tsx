@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 interface ThirdRowProps {
@@ -10,8 +12,18 @@ interface ThirdRowProps {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    margin: `0 200px`,
-    marginTop: '50px',
+    margin: `100px 200px`,
+    display: `flex`,
+    justifyContent: `space-between`,
+    flexWrap: `nowrap`,
+  },
+  image: {
+    height: `20vw`,
+    width: `40vw`,
+    marginLeft: `70px`,
+  },
+  button: {
+    margin: `20px 0`,
   },
 }));
 
@@ -24,19 +36,14 @@ const FirstRow: React.FC<ThirdRowProps> = ({
 
   return (
     <div className={classes.container}>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item>
-          <Typography style={{ width: '900px' }} variant="h2">
-            {title}
-          </Typography>
-          <Typography style={{ width: '500px' }} variant="body1">
-            {bodyText}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <img width="50%" src={imageSrc} />
-        </Grid>
-      </Grid>
+      <Box flexDirection="row" maxWidth="50%">
+        <Typography variant="h2">{title}</Typography>
+        <Typography variant="body1">{bodyText}</Typography>
+        <Button className={classes.button} variant="contained" color="primary">
+          Our Solutions
+        </Button>
+      </Box>
+      <img className={classes.image} src={imageSrc} />
     </div>
   );
 };
