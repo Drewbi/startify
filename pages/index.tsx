@@ -66,7 +66,6 @@ const Home: React.FC = () => {
                   />
 
                   <Button
-                    style={{ marginLeft: '12px' }}
                     variant="contained"
                     color="primary"
                     disabled={!dirty || !isValid}
