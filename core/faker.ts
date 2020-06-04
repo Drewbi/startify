@@ -1,7 +1,22 @@
 import * as faker from 'faker';
+import * as _ from 'lodash';
 
-interface FakeData {
+import fakeSentences from './../assets/PhraseData';
+
+export interface FakeData {
   companyName: string;
+  companyBs: [
+    {
+      title: string;
+      body: string;
+    },
+  ];
+  companyCatchPhrase: [
+    {
+      title: string;
+      body: string;
+    },
+  ];
   address: {
     streetAddress: string;
     streetName: string;
@@ -11,13 +26,43 @@ interface FakeData {
     zipCode: string;
   };
   phoneNumber: string;
+  person: {
+    name: string;
+    suffix: string;
+    title: string;
+  };
 }
+
+const generateRandomInteger = (max: number) =>
+  Math.floor(1 + Math.random() * max);
 
 export function getFakeData(seed: number): FakeData {
   faker.seed(seed);
 
+  const companyBs = _.map(_.range(3), () => {
+    const title = faker.company.bs();
+    const body = fakeSentences[generateRandomInteger(22)];
+
+    return {
+      title,
+      body,
+    };
+  });
+
+  const companyCatchPhrase = _.map(_.range(3), () => {
+    const title = faker.company.catchPhrase();
+    const body = fakeSentences[generateRandomInteger(22)];
+
+    return {
+      title,
+      body,
+    };
+  });
+
   const fakeData: FakeData = {
     companyName: faker.company.companyName(),
+    companyBs,
+    companyCatchPhrase,
     address: {
       streetAddress: faker.address.streetAddress(),
       streetName: faker.address.streetName(),
@@ -27,6 +72,11 @@ export function getFakeData(seed: number): FakeData {
       zipCode: faker.address.zipCode(),
     },
     phoneNumber: faker.phone.phoneNumber(),
+    person: {
+      name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      suffix: faker.name.suffix(),
+      title: faker.name.jobTitle(),
+    },
   };
 
   return fakeData;
