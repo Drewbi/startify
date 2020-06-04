@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
   heroImage: {
     objectFit: `cover`,
     width: `100%`,
-    height: `calc(50px + 30vh)`,
+    height: `200px`,
   },
 }));
 
