@@ -1,8 +1,7 @@
 import { routeParams } from '../../core';
-  
+
 import Head from 'next/head';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { useRouter } from 'next/router';
 import {
   Header,
   Footer,
@@ -11,34 +10,33 @@ import {
   SecondRow,
   ThirdRow,
 } from '../../components';
-
-const secondRowData = [
-  {
-    imageSrc: '/bear.svg',
-    title: 'Distributed Info-Mediaries',
-    bodyText:
-      'If you want to use a single-server server and you want to use it locally for the server, you can create a new server instance with a single-server server.',
-  },
-  {
-    imageSrc: '/notes.svg',
-    title: 'Collaborative Knowledge Base',
-    bodyText:
-      'In order to foster collaborative knowledge sharing, the University of Chicago will collaborate with other universities on a collaborative project to create a research-based educational resource.',
-  },
-  {
-    imageSrc: '/stats.svg',
-    title: 'Distributed Info-Mediaries',
-    bodyText:
-      'The new system will allow you to create a high-resolution, interactive virtual-reality experience for the virtual body. The new display is composed of three different colored lights that are controlled by the user.',
-  },
-];
+import { getFakeData } from '../../core/faker';
 
 export default function Home() {
-  console.log(routeParams());
+  const { seed } = routeParams();
+  const fakeData = getFakeData(seed);
+
+  const secondRowData = [
+    {
+      imageSrc: '/bear.svg',
+      title: fakeData.companyBs[0].title,
+      bodyText: fakeData.companyBs[0].bodyText.substr(0, 200),
+    },
+    {
+      imageSrc: '/notes.svg',
+      title: fakeData.companyBs[1].title,
+      bodyText: fakeData.companyBs[1].bodyText.substr(0, 200),
+    },
+    {
+      imageSrc: '/stats.svg',
+      title: fakeData.companyBs[2].title,
+      bodyText: fakeData.companyBs[2].bodyText.substr(0, 200),
+    },
+  ];
   return (
     <div className="container">
       <Head>
-        <title>Graham Group</title>
+        <title>{fakeData.companyName}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="viewport"
@@ -46,27 +44,27 @@ export default function Home() {
         />
       </Head>
       <CssBaseline />
-      <Header name="Graham & Graham" />
+      <Header name={fakeData.companyName} />
       <Hero />
       <FirstRow
-        titleText={'Business-focused contextually based architecture'}
-        firstText={
-          "We've been able to get the idea of creating an extremely simple and accessible architecture that is both flexible and fun to use"
-        }
-        secondText={
-          'So if you want to do something really unique to your company, you have to be able to design it ot a certain level of functionality that you can implement in a way that you can feel comfortable using.'
-        }
+        titleText={fakeData.companyCatchPhrase[0].title}
+        firstText={fakeData.companyCatchPhrase[0].bodyText.substr(0, 100)}
+        secondText={fakeData.companyCatchPhrase[2].bodyText}
         imageSrc="/stats.svg"
       />
       <SecondRow data={secondRowData} />
       <ThirdRow
-        title={'Visionary. Innovate. Convergence. '}
-        bodyText={
-          'With the help of our friends at the Center for Economic and Policy Research, we are bringing out the top-ranked scientists in the field of robotics in a series of posts that will focus on the new technologies that will be available to our community. In general, these new technologies will be the most advanced in the history of robotics. In short, the more advanced are the technologies that will enable us to make the most of our innovations.'
-        }
+        title={fakeData.companyCatchPhrase[1].title}
+        bodyText={fakeData.companyCatchPhrase[1].bodyText}
         imageSrc="https://unsplash.com/photos/Ua-agENjmI4/download"
       />
-      <Footer />
+      <Footer
+        companyName={fakeData.companyName}
+        quote={fakeData.companyCatchPhrase[2].title}
+        address={fakeData.address}
+        phoneNumber={fakeData.phoneNumber}
+        person={fakeData.person}
+      />
     </div>
   );
 }

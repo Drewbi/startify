@@ -8,13 +8,13 @@ export interface FakeData {
   companyBs: [
     {
       title: string;
-      body: string;
+      bodyText: string;
     },
   ];
   companyCatchPhrase: [
     {
       title: string;
-      body: string;
+      bodyText: string;
     },
   ];
   address: {
@@ -41,21 +41,21 @@ export function getFakeData(seed: number): FakeData {
 
   const companyBs = _.map(_.range(3), () => {
     const title = faker.company.bs();
-    const body = fakeSentences[generateRandomInteger(22)];
+    const bodyText = fakeSentences[generateRandomInteger(22)];
 
     return {
       title,
-      body,
+      bodyText,
     };
   });
 
   const companyCatchPhrase = _.map(_.range(3), () => {
     const title = faker.company.catchPhrase();
-    const body = fakeSentences[generateRandomInteger(22)];
+    const bodyText = fakeSentences[generateRandomInteger(22)];
 
     return {
       title,
-      body,
+      bodyText,
     };
   });
 
