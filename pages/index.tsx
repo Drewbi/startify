@@ -36,7 +36,8 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   const handleSubmit = (values: FormValues): void => {
-    const generateRandomInteger = (max) => Math.floor(1 + Math.random() * max);
+    const generateRandomInteger = (max: number) =>
+      Math.floor(1 + Math.random() * max);
     const typeId = values['type'];
     const redirectURL = `/home/${generateRandomInteger(1000000)}?t=${typeId}`;
     router.push(redirectURL);
