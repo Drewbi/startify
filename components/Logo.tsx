@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
 
 interface LogoProps {
   name: string;
+  color: string;
 }
 
 const Logo: React.FC<LogoProps> = (props: LogoProps) => {
@@ -20,12 +21,12 @@ const Logo: React.FC<LogoProps> = (props: LogoProps) => {
           cx="15"
           cy="16"
           r="12"
-          stroke="#154A71"
+          stroke={props.color}
           strokeWidth="2.5"
           fill="none"
         />
         <text
-          fill="#154A71"
+          fill={props.color}
           fontSize="18"
           fontFamily="Beirut"
           textAnchor="middle"

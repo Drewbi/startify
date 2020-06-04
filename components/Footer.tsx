@@ -1,107 +1,87 @@
-import Grid from '@material-ui/core/Grid';
+import Logo from './Logo';
 import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
+  container: {
+    backgroundColor: theme.palette.primary.main,
+    height: `200px`,
+    display: `flex`,
+    flexDirection: `row`,
+    justifyContent: `space-between`,
   },
   link: {
-    margin: theme.spacing(1, 1.5),
+    color: `white`,
+    fontWeight: 300,
+    fontSize: `15px`,
   },
-  heroContent: {
-    padding: theme.spacing(8, 0, 6),
+  text: {
+    color: `white`,
+    fontWeight: 300,
+    fontSize: `15px`,
   },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'light'
-        ? theme.palette.grey[200]
-        : theme.palette.grey[700],
+  quoteText: {
+    color: `white`,
+    fontWeight: 500,
+    fontSize: `17px`,
   },
-  cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: theme.spacing(2),
+  LogoText: {
+    color: `white`,
   },
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-  },
+  logoContainer: {},
+  quoteContainer: {},
+  linkContainer: {},
 }));
-
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one',
-    ],
-  },
-  {
-    title: 'Resources',
-    description: [
-      'Resource',
-      'Resource name',
-      'Another resource',
-      'Final resource',
-    ],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
-];
 
 const Footer: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="md" component="footer" className={classes.footer}>
-      <Grid container spacing={4} justify="space-evenly">
-        {footers.map((footer) => (
-          <Grid item xs={6} sm={3} key={footer.title}>
-            <Typography variant="h6" color="textPrimary" gutterBottom>
-              {footer.title}
-            </Typography>
-            <ul>
-              {footer.description.map((item) => (
-                <li key={item}>
-                  <Link href="#" variant="subtitle1" color="textSecondary">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Grid>
-        ))}
-      </Grid>
-      <Box mt={5}>
-        <p></p>
+    <Box className={classes.container}>
+      <Box
+        mb={5}
+        ml={20}
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-around"
+        className={classes.logoContainer}
+      >
+        <div>
+          <Logo name="Graham & Graham" color="white"></Logo>
+          <Typography variant="h6" className={classes.LogoText}>
+            Graham & Graham
+          </Typography>
+        </div>
+        <Typography className={classes.text}>
+          319 Maggio Brooks, East Leahaven
+        </Typography>
+        <Typography className={classes.text}>Borders, Romania, 0213</Typography>
+        <Typography className={classes.text}>(788) 317-9037</Typography>
       </Box>
-    </Container>
+      <Box className={classes.quoteContainer}>
+        <Typography className={classes.quoteText}>
+          &quot;Total intermediate synergy”
+        </Typography>
+        <Typography className={classes.text}>
+          - Kattie Welch Sr, Global Paradigm Engineer
+        </Typography>
+      </Box>
+      <Box
+        mb={5}
+        mr={20}
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-around"
+        textAlign="right"
+        className={classes.linkContainer}
+      >
+        <Link className={classes.link}>Home</Link>
+        <Link className={classes.link}>Our Products</Link>
+        <Link className={classes.link}>About Us</Link>
+      </Box>
+    </Box>
   );
 };
 

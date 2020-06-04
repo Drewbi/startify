@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
     <React.Fragment>
       <AppBar position="static" color="default" elevation={0}>
         <Toolbar className={classes.toolbar}>
-          <Logo name={props.name} />
+          <Logo name={props.name} color="#154A71" />
           <Typography
             variant="h6"
             color="primary"

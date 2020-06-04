@@ -12,10 +12,18 @@ interface FirstRowProps {
 const useStyles = makeStyles((theme) => ({
   container: {
     margin: `50px 200px 100px 200px`,
+    [theme.breakpoints.down('sm')]: {
+      margin: `100px 50px`,
+      textAlign: `center`,
+    },
   },
   image: {
-    margin: `0 0 0 auto`,
-    display: theme.breakpoints.up('lg') ? `block` : `none`,
+    margin: `0 0 0 10vw`,
+    width: `40vw`,
+    minWidth: `300px`,
+    [theme.breakpoints.down('sm')]: {
+      display: `none`,
+    },
   },
 }));
 
@@ -29,8 +37,8 @@ const FirstRow: React.FC<FirstRowProps> = ({
 
   return (
     <div className={classes.container}>
-      <Box display="flex" flexWrap="wrap">
-        <Box flexDirection="row" width="40%">
+      <Box display="flex" flexWrap="nowrap">
+        <Box flexDirection="row">
           <Typography variant="h1">{titleText}</Typography>
           <Typography variant="body2">{firstText}</Typography>
           <Typography variant="body1">{secondText}</Typography>

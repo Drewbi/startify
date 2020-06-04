@@ -16,11 +16,18 @@ const useStyles = makeStyles((theme) => ({
     display: `flex`,
     justifyContent: `space-between`,
     flexWrap: `nowrap`,
+    [theme.breakpoints.down('sm')]: {
+      margin: `100px 50px`,
+      textAlign: `center`,
+    },
   },
   image: {
     height: `20vw`,
     width: `40vw`,
     marginLeft: `70px`,
+    [theme.breakpoints.down('sm')]: {
+      display: `none`,
+    },
   },
   button: {
     margin: `20px 0`,
@@ -36,7 +43,7 @@ const FirstRow: React.FC<ThirdRowProps> = ({
 
   return (
     <div className={classes.container}>
-      <Box flexDirection="row" maxWidth="50%">
+      <Box flexDirection="row">
         <Typography variant="h2">{title}</Typography>
         <Typography variant="body1">{bodyText}</Typography>
         <Button className={classes.button} variant="contained" color="primary">
