@@ -41,9 +41,7 @@ export function getFakeData(seed: number): FakeData {
 
   const companyBs = _.map(_.range(3), () => {
     const title = faker.company.bs();
-
     const body = fakeSentences[generateRandomInteger(22)];
-    console.log('functiongetFakeData -> body', body);
 
     return {
       title,
