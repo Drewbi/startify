@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-interface ParamData {
+export interface ParamData {
   seed: number;
   t: number;
 }

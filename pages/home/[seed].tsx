@@ -1,4 +1,4 @@
-import { routeParams } from '../../core';
+import { useRouter, NextRouter } from 'next/router';
 
 import Head from 'next/head';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,10 +12,20 @@ import {
 } from '../../components';
 import { getFakeData } from '../../core/faker';
 
-const Home: React.FC = () => {
-  const { seed, t } = routeParams();
+const isRouterReady = (router: NextRouter) => {
+  return router.asPath !== router.route;
+};
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+function Home() {
+  const router = useRouter();
+  console.log(isRouterReady(router));
+  if (!isRouterReady(router)) {
+    console.log(true);
+    return <p> Loading </p>;
+  }
 
-  const fakeData = getFakeData(seed, 2);
+  const { seed, t } = router.query;
+  const fakeData = getFakeData(+seed, +t);
 
   if (!fakeData) {
     return <p> Loading </p>;
@@ -66,6 +76,6 @@ const Home: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default Home;

@@ -97,6 +97,9 @@ export function getFakeData(seed: number, type: number): FakeData {
     };
   });
 
+  const lengthOfImageData =
+    ImageList[companyTypes[type - 1].shortName].length - 1;
+
   const fakeData: FakeData = {
     companyName: faker.company.companyName(),
     companyBs,
@@ -116,15 +119,11 @@ export function getFakeData(seed: number, type: number): FakeData {
       title: faker.name.jobTitle(),
     },
     images: [
-      ImageList[
-        generateRandomInteger(
-          ImageList[companyTypes[type - 1].shortName].length - 1,
-        )
+      ImageList[companyTypes[type - 1].shortName][
+        generateRandomInteger(lengthOfImageData)
       ],
-      ImageList[
-        generateRandomInteger(
-          ImageList[companyTypes[type - 1].shortName].length - 1,
-        )
+      ImageList[companyTypes[type - 1].shortName][
+        generateRandomInteger(lengthOfImageData)
       ],
     ],
   };
