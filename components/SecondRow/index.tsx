@@ -8,7 +8,7 @@ interface SecondRowProps {
 }
 
 const cardData = [
-  '/undraw_code_inspection_bdl7.svg',
+  'assets/illustrations/undraw_code_inspection_bdl7.svg',
   '/undraw_updated_resume_u4fy.svg',
   '/bear.svg',
 ];

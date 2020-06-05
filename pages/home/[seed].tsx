@@ -54,7 +54,7 @@ function Home() {
       </Head>
       <CssBaseline />
       <Header name={fakeData.companyName} />
-      <Hero />
+      <Hero image={fakeData.images[0]} />
       <FirstRow
         titleText={fakeData.companyCatchPhrase[0].title}
         firstText={fakeData.companyCatchPhrase[0].bodyText?.substr(0, 100)}
@@ -65,7 +65,7 @@ function Home() {
       <ThirdRow
         title={fakeData?.companyCatchPhrase[1].title}
         bodyText={fakeData?.companyCatchPhrase[1].bodyText}
-        imageSrc="https://unsplash.com/photos/Ua-agENjmI4/download"
+        imageSrc={fakeData?.images[1]}
       />
       <Footer
         companyName={fakeData.companyName}
