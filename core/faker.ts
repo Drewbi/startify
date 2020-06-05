@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 
 import fakeSentences from '../assets/PhraseData';
 import ImageList from '../assets/ImageList';
+import IllustrationList from '../assets/IllustrationList';
 
 const companyTypes = [
   {
@@ -67,6 +68,7 @@ export interface FakeData {
     title: string;
   };
   images: string[];
+  illustrations: string[];
 }
 
 const generateRandomInteger = (max: number) =>
@@ -100,6 +102,12 @@ export function getFakeData(seed: number, type: number): FakeData {
   const lengthOfImageData =
     ImageList[companyTypes[type - 1].shortName].length - 1;
 
+  const pickedIllustrations = [...Array(4)].map(
+    () => IllustrationList[generateRandomInteger(IllustrationList.length - 1)],
+  );
+
+  console.log(IllustrationList);
+  console.log(pickedIllustrations);
   const fakeData: FakeData = {
     companyName: faker.company.companyName(),
     companyBs,
@@ -126,6 +134,7 @@ export function getFakeData(seed: number, type: number): FakeData {
         generateRandomInteger(lengthOfImageData)
       ],
     ],
+    illustrations: pickedIllustrations,
   };
 
   return fakeData;

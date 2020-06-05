@@ -32,11 +32,11 @@ function Home() {
   }
 
   const getSecondRowData = () => {
-    const { companyBs } = fakeData;
+    const { companyBs, illustrations } = fakeData;
     if (!companyBs) return [];
 
-    return companyBs.map((data) => ({
-      imageSrc: '/bear.svg',
+    return companyBs.map((data, idx) => ({
+      imageSrc: illustrations[idx + 1],
       title: data?.title,
       bodyText: data?.bodyText.substring(0, 200),
     }));
@@ -59,7 +59,7 @@ function Home() {
         titleText={fakeData.companyCatchPhrase[0].title}
         firstText={fakeData.companyCatchPhrase[0].bodyText?.substr(0, 100)}
         secondText={fakeData?.companyCatchPhrase[2].bodyText}
-        imageSrc="/stats.svg"
+        imageSrc={fakeData?.illustrations[0]}
       />
       <SecondRow data={getSecondRowData()} />
       <ThirdRow
