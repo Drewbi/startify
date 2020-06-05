@@ -7,6 +7,12 @@ interface SecondRowProps {
   data: CardProps[];
 }
 
+const cardData = [
+  '/undraw_code_inspection_bdl7.svg',
+  '/undraw_updated_resume_u4fy.svg',
+  '/bear.svg',
+];
+
 const useStyles = makeStyles(() => ({
   container: {
     margin: `100px 10%`,
@@ -19,7 +25,12 @@ const FirstRow: React.FC<SecondRowProps> = ({ data }: SecondRowProps) => {
 
   // Rendering cards
   const cards = data.map(({ imageSrc, title, bodyText }, idx) => (
-    <Card key={idx} imageSrc={imageSrc} title={title} bodyText={bodyText} />
+    <Card
+      key={idx}
+      imageSrc={cardData[idx]}
+      title={title}
+      bodyText={bodyText}
+    />
   ));
 
   return (
