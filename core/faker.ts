@@ -10,8 +10,24 @@ export interface FakeData {
       title: string;
       bodyText: string;
     },
+    {
+      title: string;
+      bodyText: string;
+    },
+    {
+      title: string;
+      bodyText: string;
+    },
   ];
   companyCatchPhrase: [
+    {
+      title: string;
+      bodyText: string;
+    },
+    {
+      title: string;
+      bodyText: string;
+    },
     {
       title: string;
       bodyText: string;
@@ -41,7 +57,8 @@ export function getFakeData(seed: number): FakeData {
 
   const companyBs = _.map(_.range(3), () => {
     const title = faker.company.bs();
-    const bodyText = fakeSentences[generateRandomInteger(22)];
+    const bodyText =
+      fakeSentences[generateRandomInteger(fakeSentences.length - 1)];
 
     return {
       title,
@@ -51,7 +68,8 @@ export function getFakeData(seed: number): FakeData {
 
   const companyCatchPhrase = _.map(_.range(3), () => {
     const title = faker.company.catchPhrase();
-    const bodyText = fakeSentences[generateRandomInteger(22)];
+    const bodyText =
+      fakeSentences[generateRandomInteger(fakeSentences.length - 1)];
 
     return {
       title,
