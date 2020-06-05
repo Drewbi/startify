@@ -35,7 +35,7 @@ const Home: React.FC = () => {
     <div className="container">
       <Head>
         <title>{fakeData.companyName}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
