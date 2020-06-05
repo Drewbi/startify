@@ -1,7 +1,26 @@
 import * as faker from 'faker';
 import * as _ from 'lodash';
 
-import fakeSentences from './../assets/PhraseData';
+import fakeSentences from '../assets/PhraseData';
+import ImageList from '../assets/ImageList';
+
+const companyTypes = [
+  {
+    label: 'Corporate',
+    shortName: 'corp',
+    value: '1',
+  },
+  {
+    label: 'Technology',
+    shortName: 'tech',
+    value: '2',
+  },
+  {
+    label: 'AI',
+    shortName: 'ai',
+    value: '3',
+  },
+];
 
 export interface FakeData {
   companyName: string;
@@ -47,14 +66,15 @@ export interface FakeData {
     suffix: string;
     title: string;
   };
+  images: string[];
 }
 
 const generateRandomInteger = (max: number) =>
   (1 + faker.random.number()) % max;
 
-export function getFakeData(seed: number): FakeData {
+export function getFakeData(seed: number, type: number): FakeData {
   faker.seed(seed);
-
+  console.log(type);
   const companyBs = _.map(_.range(3), () => {
     const title = faker.company.bs();
     const bodyText =
@@ -77,6 +97,9 @@ export function getFakeData(seed: number): FakeData {
     };
   });
 
+  const lengthOfImageData =
+    ImageList[companyTypes[type - 1].shortName].length - 1;
+
   const fakeData: FakeData = {
     companyName: faker.company.companyName(),
     companyBs,
@@ -95,6 +118,14 @@ export function getFakeData(seed: number): FakeData {
       suffix: faker.name.suffix(),
       title: faker.name.jobTitle(),
     },
+    images: [
+      ImageList[companyTypes[type - 1].shortName][
+        generateRandomInteger(lengthOfImageData)
+      ],
+      ImageList[companyTypes[type - 1].shortName][
+        generateRandomInteger(lengthOfImageData)
+      ],
+    ],
   };
 
   return fakeData;
