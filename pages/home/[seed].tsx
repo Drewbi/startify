@@ -51,7 +51,7 @@ function Home() {
         />
       </Head>
       <CssBaseline />
-      <Header name={fakeData.companyName} />
+      <Header name={fakeData.companyName} type={fakeData.companyType} />
       <Hero image={fakeData.images[0]} />
       <FirstRow
         titleText={fakeData.companyCatchPhrase[0].title}
