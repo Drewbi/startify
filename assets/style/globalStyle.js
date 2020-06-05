@@ -3,6 +3,9 @@ export default {
     primary: {
       main: '#154A71',
     },
+    secondary: {
+      main: '#6ecebb',
+    },
   },
   breakpoints: {
     values: {
