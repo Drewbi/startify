@@ -18,9 +18,7 @@ const isRouterReady = (router: NextRouter) => {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function Home() {
   const router = useRouter();
-  console.log(isRouterReady(router));
   if (!isRouterReady(router)) {
-    console.log(true);
     return <p> Loading </p>;
   }
 
