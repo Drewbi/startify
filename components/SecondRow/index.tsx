@@ -14,9 +14,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FirstRow: React.FC<SecondRowProps> = ({ data }: SecondRowProps) => {
+const SecondRow: React.FC<SecondRowProps> = ({ data }: SecondRowProps) => {
   const classes = useStyles();
-
+  console.log(data);
   // Rendering cards
   const cards = data.map(({ imageSrc, title, bodyText }, idx) => (
     <Card key={idx} imageSrc={imageSrc} title={title} bodyText={bodyText} />
@@ -36,4 +36,4 @@ const FirstRow: React.FC<SecondRowProps> = ({ data }: SecondRowProps) => {
   );
 };
 
-export default FirstRow;
+export default SecondRow;

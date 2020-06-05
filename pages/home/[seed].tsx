@@ -18,9 +18,7 @@ const isRouterReady = (router: NextRouter) => {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function Home() {
   const router = useRouter();
-  console.log(isRouterReady(router));
   if (!isRouterReady(router)) {
-    console.log(true);
     return <p> Loading </p>;
   }
 
@@ -32,11 +30,11 @@ function Home() {
   }
 
   const getSecondRowData = () => {
-    const { companyBs } = fakeData;
+    const { companyBs, illustrations } = fakeData;
     if (!companyBs) return [];
 
-    return companyBs.map((data) => ({
-      imageSrc: '/bear.svg',
+    return companyBs.map((data, idx) => ({
+      imageSrc: illustrations[idx + 1],
       title: data?.title,
       bodyText: data?.bodyText.substring(0, 200),
     }));
@@ -54,18 +52,18 @@ function Home() {
       </Head>
       <CssBaseline />
       <Header name={fakeData.companyName} />
-      <Hero />
+      <Hero image={fakeData.images[0]} />
       <FirstRow
         titleText={fakeData.companyCatchPhrase[0].title}
         firstText={fakeData.companyCatchPhrase[0].bodyText?.substr(0, 100)}
         secondText={fakeData?.companyCatchPhrase[2].bodyText}
-        imageSrc="/stats.svg"
+        imageSrc={fakeData?.illustrations[0]}
       />
       <SecondRow data={getSecondRowData()} />
       <ThirdRow
         title={fakeData?.companyCatchPhrase[1].title}
         bodyText={fakeData?.companyCatchPhrase[1].bodyText}
-        imageSrc="https://unsplash.com/photos/Ua-agENjmI4/download"
+        imageSrc={fakeData?.images[1]}
       />
       <Footer
         companyName={fakeData.companyName}

@@ -9,14 +9,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeroImage: React.FC = () => {
+interface HeroProps {
+  image: string;
+}
+
+const HeroImage: React.FC<HeroProps> = ({ image }: HeroProps) => {
   const classes = useStyles();
   return (
     <div>
-      <img
-        src="https://unsplash.com/photos/MYbhN8KaaEc/download"
-        className={classes.heroImage}
-      ></img>
+      <img src={image} className={classes.heroImage}></img>
     </div>
   );
 };

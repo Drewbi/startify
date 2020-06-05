@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    height: `20vw`,
-    width: `40vw`,
+    height: `15vw`,
+    width: `30vw`,
     marginLeft: `70px`,
     [theme.breakpoints.down('sm')]: {
       display: `none`,

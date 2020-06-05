@@ -69,13 +69,14 @@ const Footer: React.FC<FooterProps> = ({
       <Box
         mb={5}
         ml={20}
+        mt={5}
         display="flex"
         flexDirection="column"
         justifyContent="space-around"
         className={classes.logoContainer}
       >
         <div>
-          <Logo name={companyName} color="white"></Logo>
+          {/* <Logo name={companyName} color="white"></Logo> */}
           <Typography variant="h6" className={classes.LogoText}>
             {companyName}
           </Typography>
@@ -97,6 +98,7 @@ const Footer: React.FC<FooterProps> = ({
       <Box
         mb={5}
         mr={20}
+        mt={5}
         display="flex"
         flexDirection="column"
         justifyContent="space-around"
