@@ -70,7 +70,7 @@ export interface FakeData {
 }
 
 const generateRandomInteger = (max: number) =>
-  Math.floor(1 + Math.random() * max);
+  (1 + faker.random.number()) % max;
 
 export function getFakeData(seed: number, type: number): FakeData {
   faker.seed(seed);
