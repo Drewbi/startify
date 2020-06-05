@@ -19,16 +19,12 @@ const positionItems: FormSelectItem[] = [
     value: '1',
   },
   {
-    label: 'AI',
+    label: 'Technology',
     value: '2',
   },
   {
-    label: 'Technology',
+    label: 'AI',
     value: '3',
-  },
-  {
-    label: 'E-Commerce',
-    value: '4',
   },
 ];
 

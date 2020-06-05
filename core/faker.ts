@@ -8,17 +8,17 @@ const companyTypes = [
   {
     label: 'Corporate',
     shortName: 'corp',
-    value: '0',
+    value: '1',
   },
   {
     label: 'Technology',
     shortName: 'tech',
-    value: '1',
+    value: '2',
   },
   {
     label: 'AI',
     shortName: 'ai',
-    value: '2',
+    value: '3',
   },
 ];
 
@@ -74,7 +74,7 @@ const generateRandomInteger = (max: number) =>
 
 export function getFakeData(seed: number, type: number): FakeData {
   faker.seed(seed);
-
+  console.log(type);
   const companyBs = _.map(_.range(3), () => {
     const title = faker.company.bs();
     const bodyText =
@@ -118,12 +118,12 @@ export function getFakeData(seed: number, type: number): FakeData {
     images: [
       ImageList[
         generateRandomInteger(
-          ImageList[companyTypes[type].shortName].length - 1,
+          ImageList[companyTypes[type - 1].shortName].length - 1,
         )
       ],
       ImageList[
         generateRandomInteger(
-          ImageList[companyTypes[type].shortName].length - 1,
+          ImageList[companyTypes[type - 1].shortName].length - 1,
         )
       ],
     ],

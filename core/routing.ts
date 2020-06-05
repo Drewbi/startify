@@ -8,7 +8,6 @@ export const routeParams = (): ParamData => {
   const router = useRouter();
 
   const { seed, t } = router.query;
-
   return {
     seed: +seed,
     t: +t,

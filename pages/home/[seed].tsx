@@ -13,8 +13,9 @@ import {
 import { getFakeData } from '../../core/faker';
 
 const Home: React.FC = () => {
-  const { seed } = routeParams();
-  const fakeData = getFakeData(seed);
+  const { seed, t } = routeParams();
+
+  const fakeData = getFakeData(seed, 2);
 
   if (!fakeData) {
     return <p> Loading </p>;
