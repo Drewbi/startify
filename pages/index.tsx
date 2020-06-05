@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Formik, Form } from 'formik';
 import FormSelect, { FormSelectItem } from '../components/FormSelect';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Typography } from '@material-ui/core';
 import { useRouter } from 'next/router';
@@ -32,7 +33,16 @@ const positionItems: FormSelectItem[] = [
   },
 ];
 
+const useStyles = makeStyles((theme) => ({
+  heroImage: {
+    objectFit: `cover`,
+    width: `100%`,
+    height: `200px`,
+  },
+}));
+
 const Home: React.FC = () => {
+  const classes = useStyles();
   const router = useRouter();
 
   const handleSubmit = (values: FormValues): void => {
@@ -82,7 +92,7 @@ const Home: React.FC = () => {
       </main>
 
       <footer>
-        <p> Made by Team 1 in Pod 0.3.2 </p>
+        <Typography> Made by Team 1 in Pod 0.3.2 </Typography>
       </footer>
 
       <style jsx>{`
