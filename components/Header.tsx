@@ -10,6 +10,7 @@ import Logo from '../components/Logo';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     flexWrap: 'wrap',
+    paddingLeft: '15vw',
   },
   toolbarTitle: {
     flexGrow: 1,
@@ -31,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
 
 interface HeaderProps {
   name: string;
+  type: number;
 }
+
+const generateRandomInteger = (max: number) =>
+  Math.floor(1 + Math.random() * max);
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const classes = useStyles();
@@ -39,7 +44,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
     <React.Fragment>
       <AppBar position="static" color="default" elevation={0}>
         <Toolbar className={classes.toolbar}>
-          <Logo name={props.name} color="#154A71" />
+          {props.type === 1 && <Logo name={props.name} color="#154A71" />}
           <Typography
             variant="h6"
             color="primary"
@@ -75,7 +80,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
             </Link>
           </nav>
           <Button
-            href="#"
+            href={`/home/${generateRandomInteger(1000000)}?t=${props.type}`}
             color="primary"
             variant="contained"
             className={classes.activeLink}

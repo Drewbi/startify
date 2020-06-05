@@ -25,6 +25,7 @@ const companyTypes = [
 
 export interface FakeData {
   companyName: string;
+  companyType: number;
   companyBs: [
     {
       title: string;
@@ -76,7 +77,6 @@ const generateRandomInteger = (max: number) =>
 
 export function getFakeData(seed: number, type: number): FakeData {
   faker.seed(seed);
-  console.log(type);
   const companyBs = _.map(_.range(3), () => {
     const title = faker.company.bs();
     const bodyText =
@@ -106,10 +106,58 @@ export function getFakeData(seed: number, type: number): FakeData {
     () => IllustrationList[generateRandomInteger(IllustrationList.length - 1)],
   );
 
-  console.log(IllustrationList);
-  console.log(pickedIllustrations);
+  const suffix = [
+    'ify',
+    'io',
+    'r',
+    '.io',
+    'igo',
+    'ster',
+    'eo',
+    'pay',
+    'ly',
+    'ee',
+  ];
+  const prefix = [
+    'i',
+    'X.',
+    'Fin',
+    'Air',
+    'Deep',
+    'Bit',
+    'Mind',
+    'Data',
+    'Cloud',
+    'Open',
+    'Zy',
+    'Alpha-',
+    'Neura',
+    'AI',
+    'In',
+  ];
+
+  const generateCompanyName = () => {
+    let word = faker.random.word();
+    if (word.length > 5 && type === 2) {
+      word = word.slice(0, -2);
+    }
+    const re = /\w+?(?=[aeiou]*$|er|ing)/;
+    const matches = word.match(re);
+    word = matches[0];
+    if (type === 3) {
+      const randomPrefix = generateRandomInteger(prefix.length);
+      return prefix[randomPrefix] + word;
+    }
+    const randomSuffix = generateRandomInteger(suffix.length);
+    return word + suffix[randomSuffix];
+  };
+
+  const companyName =
+    type === 1 ? faker.company.companyName() : generateCompanyName();
+
   const fakeData: FakeData = {
-    companyName: faker.company.companyName(),
+    companyName,
+    companyType: type,
     companyBs,
     companyCatchPhrase,
     address: {
