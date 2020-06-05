@@ -1,7 +1,26 @@
 import * as faker from 'faker';
 import * as _ from 'lodash';
 
-import fakeSentences from './../assets/PhraseData';
+import fakeSentences from '../assets/PhraseData';
+import ImageList from '../assets/ImageList';
+
+const companyTypes = [
+  {
+    label: 'Corporate',
+    shortName: 'corp',
+    value: '0',
+  },
+  {
+    label: 'Technology',
+    shortName: 'tech',
+    value: '1',
+  },
+  {
+    label: 'AI',
+    shortName: 'ai',
+    value: '2',
+  },
+];
 
 export interface FakeData {
   companyName: string;
@@ -47,12 +66,13 @@ export interface FakeData {
     suffix: string;
     title: string;
   };
+  images: string[];
 }
 
 const generateRandomInteger = (max: number) =>
   Math.floor(1 + Math.random() * max);
 
-export function getFakeData(seed: number): FakeData {
+export function getFakeData(seed: number, type: number): FakeData {
   faker.seed(seed);
 
   const companyBs = _.map(_.range(3), () => {
@@ -95,6 +115,18 @@ export function getFakeData(seed: number): FakeData {
       suffix: faker.name.suffix(),
       title: faker.name.jobTitle(),
     },
+    images: [
+      ImageList[
+        generateRandomInteger(
+          ImageList[companyTypes[type].shortName].length - 1,
+        )
+      ],
+      ImageList[
+        generateRandomInteger(
+          ImageList[companyTypes[type].shortName].length - 1,
+        )
+      ],
+    ],
   };
 
   return fakeData;
