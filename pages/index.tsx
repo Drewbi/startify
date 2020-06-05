@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { Formik, Form } from 'formik';
 import FormSelect, { FormSelectItem } from '../components/FormSelect';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Typography } from '@material-ui/core';
 import { useRouter } from 'next/router';
@@ -29,35 +28,7 @@ const positionItems: FormSelectItem[] = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    minHeight: `100vh`,
-    padding: `0 0.5rem`,
-    display: `flex`,
-    flexDirection: `column`,
-    justifyContent: `center`,
-    alignItems: `center`,
-    backgroundColor: `#fff`,
-  },
-  logo: {
-    fontFamily: `Comfortaa`,
-    color: `#444`,
-  },
-  footer: {
-    width: `100%`,
-    height: `50px`,
-    display: `flex`,
-    justifyContent: `center`,
-    alignItems: `center`,
-    position: `absolute`,
-    bottom: `0`,
-    color: `#444`,
-  },
-  form: {},
-}));
-
 const Home: React.FC = () => {
-  const classes = useStyles();
   const router = useRouter();
 
   const handleSubmit = (values: FormValues): void => {
@@ -69,14 +40,14 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
+    <div className="container">
       <Head>
         <title> Startify </title>
         <link rel="icon" href="/favicon.png" />
       </Head>
 
       <img width="100px" src="/favicon.png" />
-      <Typography className={classes.logo} variant="h4">
+      <Typography className="logo" variant="h4">
         Startify
       </Typography>
       <div className="form">
@@ -86,7 +57,7 @@ const Home: React.FC = () => {
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ dirty, isValid }) => {
             return (
-              <Form className={classes.form}>
+              <Form className="form">
                 <FormSelect
                   name="type"
                   items={positionItems}
@@ -95,7 +66,7 @@ const Home: React.FC = () => {
 
                 <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   disabled={!dirty || !isValid}
                   type="submit"
                 >
@@ -107,12 +78,24 @@ const Home: React.FC = () => {
         </Formik>
       </div>
 
-      <footer className={classes.footer}>
+      <footer className="footer">
         <Typography> Made by Team 1 in Pod 0.3.2 </Typography>
       </footer>
 
       <style jsx>{`
         .container {
+          min-height: 100vh;
+          padding: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+        }
+
+        .logo {
+          fontFamily: Comfortaa
+          color: #444
         }
 
         .form {
@@ -132,7 +115,15 @@ const Home: React.FC = () => {
           align-items: center;
         }
 
-        footer {
+        .footer {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          bottom: 0;
+          color: #444;
         }
 
         .title {
