@@ -25,6 +25,7 @@ vercel # Staging deployment
 - [Vercel Hosting](https://github.com/vercel/vercel)
 - [DeepAI](https://deepai.org/machine-learning-model/text-generator)
 
+![Startify-Demo](https://user-images.githubusercontent.com/38243574/83936770-4b491f00-a7f9-11ea-926e-9a6e25b3a0fe.png)
 ## Features
 - Choose from a few startup categories
 - Generates a fake website using faker.js
